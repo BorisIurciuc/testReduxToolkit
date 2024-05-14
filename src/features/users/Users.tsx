@@ -20,6 +20,7 @@ export default function Users(): JSX.Element {
 				{users.map(user => (
 					<li key={user.id}>
 						<b>firstname {user.name.firstname} </b>
+						<br />
 						<b> lastname{user.name.lastname}</b>
 						<br />
 						username: {user.username} email: {user.email}
