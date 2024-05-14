@@ -15,7 +15,7 @@ export default function Users(): JSX.Element {
 
 	return (
 		<div>
-			<h1>Users</h1>
+			<h1>Users BR3</h1>
 			<ul className={style.containerUsers}>
 				{users.map(user => (
 					<li key={user.id}>
