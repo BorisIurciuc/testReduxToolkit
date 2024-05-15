@@ -18,7 +18,7 @@ export async function fetchProducts(): Promise<Product[]> {
 }
 export async function deleteProduct(id: number): Promise<Product | undefined> {
 	try {
-		const res = await fetch(`https://dummyjson.com/products/${id} `, { method: 'DELETE' })
+		const res = await fetch(`https://dummyjson.com/products/${id}`, { method: 'DELETE' })
 		if (res.ok) {
 			return await res.json()
 		} else {
@@ -30,4 +30,13 @@ export async function deleteProduct(id: number): Promise<Product | undefined> {
 		console.error('Error deleting product:', error)
 		return undefined
 	}
+}
+
+export async function fetchEditTitle(title: string, id: number): Promise<Product> {
+	const res = await fetch(`https://dummyjson.com/products/${id}`, {
+		method: 'PUT',
+		headers: { 'Content-Type': 'application/json' },
+		body: JSON.stringify({ title }),
+	})
+	return res.json()
 }

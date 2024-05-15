@@ -27,7 +27,7 @@ export default function Users(): JSX.Element {
 						<br />
 						adress: {user.address.city}, {user.address.street}, {user.address.number},
 						{user.address.zipcode}
-						<Carts userId={user.id} />
+						{/* <Carts userId={user.id} /> */}
 					</li>
 				))}
 			</ul>
