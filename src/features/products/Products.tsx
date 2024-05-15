@@ -21,7 +21,7 @@ export default function Products(): JSX.Element {
 						<p>
 							<b>{product.title}</b>
 						</p>
-						<ProductEdit id={product.id} />
+						<ProductEdit idProd={product.id} />
 						<p>{product.description}</p>
 						<p>{product.price}</p>
 						<img src={product.thumbnail} alt="thumbnail" />
