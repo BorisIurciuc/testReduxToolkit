@@ -20,7 +20,7 @@ export const productsSlice = createSlice({
 				state.products = action.payload
 			})
 			.addCase(deleteProduct.fulfilled, (state, action) => {
-				state.products = state.products.filter(product => product.id !== action.payload.id)
+				state.products = state.products.filter(product => product.id !== action.payload?.id)
 			})
 	},
 })

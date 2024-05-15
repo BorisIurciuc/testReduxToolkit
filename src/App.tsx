@@ -6,6 +6,7 @@ import { Quotes } from './features/quotes/Quotes'
 import Layout from './layouts/Layout'
 import Home from './components/Home/Home'
 import Users from './features/users/Users'
+import Products from './features/products/Products'
 
 function App(): JSX.Element {
 	return (
@@ -16,6 +17,7 @@ function App(): JSX.Element {
 					<Route path="counter" element={<Counter />} />
 					<Route path="quotes" element={<Quotes />} />
 					<Route path="users" element={<Users />} />
+					<Route path="products" element={<Products />} />
 				</Route>
 			</Routes>
 		</>

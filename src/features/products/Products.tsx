@@ -20,7 +20,10 @@ export default function Products(): JSX.Element {
 						<p>{product.title}</p>
 						<p>{product.description}</p>
 						<p>{product.price}</p>
-						<button type="button" onClick={() => dispatch(deleteProduct(product.id))}></button>
+						<img src={product.thumbnail} alt="thumbnail" />
+						<button type="button" onClick={() => dispatch(deleteProduct(product.id))}>
+							delete
+						</button>
 					</li>
 				))}
 			</div>
