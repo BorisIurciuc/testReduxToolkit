@@ -3,10 +3,10 @@ import { combineSlices, configureStore } from '@reduxjs/toolkit'
 import { setupListeners } from '@reduxjs/toolkit/query'
 import { counterSlice } from '../features/counter/counterSlice'
 import { quotesApiSlice } from '../features/quotes/quotesApiSlice'
-import { productsSlice } from '../features/products/ProductsSlice'
 import { usersSlice } from '../features/users/UserSlice'
+import { productsSlice } from '../features/products/ProductsSlice'
 
-const rootReducer = combineSlices(counterSlice, quotesApiSlice, productsSlice, usersSlice)
+const rootReducer = combineSlices(counterSlice, quotesApiSlice, usersSlice, productsSlice)
 export type RootState = ReturnType<typeof rootReducer>
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
