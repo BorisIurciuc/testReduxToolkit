@@ -7,6 +7,7 @@ import Layout from './layouts/Layout'
 import Home from './components/Home/Home'
 import Users from './features/users/Users'
 import Products from './features/products/Products'
+import ProductEdit from './features/products/ProductEdit'
 
 function App(): JSX.Element {
 	return (

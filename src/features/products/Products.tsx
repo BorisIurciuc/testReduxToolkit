@@ -24,7 +24,7 @@ export default function Products(): JSX.Element {
 						<ProductEdit idProd={product.id} />
 						<p>{product.description}</p>
 						<p>{product.price}</p>
-						<img src={product.thumbnail} alt="thumbnail" />
+						<img src={product.image} alt="thumbnail" style={{ width: '150px' }} />
 						<button type="button" onClick={() => dispatch(deleteProduct(product.id))}>
 							delete
 						</button>
