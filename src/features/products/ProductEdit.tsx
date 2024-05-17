@@ -10,6 +10,7 @@ export default function ProductEdit(props: { idProd: number }): JSX.Element {
 	function handleSubmit(e: FormEvent<HTMLFormElement>): void {
 		e.preventDefault()
 		dispatch(editTitle({ title, id: idProd }))
+		setTitle('')
 	}
 	console.log('idProd', idProd)
 	console.log('title ', title)
