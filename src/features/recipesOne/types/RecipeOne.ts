@@ -1,4 +1,4 @@
-export default interface Recipe {
+export default interface RecipeOne {
 	id: number
 	name: string
 	instructions: string[]

@@ -6,13 +6,15 @@ import { quotesApiSlice } from '../features/quotes/quotesApiSlice'
 import { usersSlice } from '../features/users/UserSlice'
 import { productsSlice } from '../features/products/ProductsSlice'
 import { recipesSlice } from '../features/recipes/RecipesSlice'
+import { RecipeOneSlice } from '../features/recipesOne/RecipeOneSlice'
 
 const rootReducer = combineSlices(
 	counterSlice,
 	quotesApiSlice,
 	usersSlice,
 	productsSlice,
-	recipesSlice
+	recipesSlice,
+	RecipeOneSlice
 )
 export type RootState = ReturnType<typeof rootReducer>
 

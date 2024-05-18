@@ -6,12 +6,10 @@ const initialState: RecipesState = {
 	recipes: [],
 	filtered: [],
 }
-
 export const loadRecipes = createAsyncThunk('recipes/fetchRecipes', async () => {
 	const response = await api.fetchRecipes()
 	return response
 })
-
 export const recipesSlice = createSlice({
 	name: 'recipes',
 	initialState,
