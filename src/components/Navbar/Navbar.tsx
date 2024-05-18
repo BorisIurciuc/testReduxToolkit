@@ -9,6 +9,7 @@ export default function Navbar(): JSX.Element {
 			<NavLink to="quotes">Quotes</NavLink>
 			<NavLink to="products">Products</NavLink>
 			<NavLink to="users">Users</NavLink>
+			<NavLink to="recipes">Recipes</NavLink>
 		</nav>
 	)
 }

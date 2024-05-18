@@ -5,8 +5,15 @@ import { counterSlice } from '../features/counter/counterSlice'
 import { quotesApiSlice } from '../features/quotes/quotesApiSlice'
 import { usersSlice } from '../features/users/UserSlice'
 import { productsSlice } from '../features/products/ProductsSlice'
+import { recipesSlice } from '../features/recipes/RecipesSlice'
 
-const rootReducer = combineSlices(counterSlice, quotesApiSlice, usersSlice, productsSlice)
+const rootReducer = combineSlices(
+	counterSlice,
+	quotesApiSlice,
+	usersSlice,
+	productsSlice,
+	recipesSlice
+)
 export type RootState = ReturnType<typeof rootReducer>
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
