@@ -4,7 +4,8 @@ export async function fetchRecipes(): Promise<Recipes[]> {
 	try {
 		const res = await fetch('https://dummyjson.com/recipes')
 		if (res.ok) {
-			return await res.json()
+			const data = (await res.json()) as { recipes: Recipes[] }
+			return data.recipes
 		} else {
 			throw new Error('Failed to fetch recipes')
 		}

@@ -1,6 +1,6 @@
 export default interface Recipe {
 	id: number
 	name: string
-	ingredients: string
-	instructions: string
+	//ingredients: string
+	//instructions: string
 }

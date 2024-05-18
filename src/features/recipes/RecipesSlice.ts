@@ -7,7 +7,7 @@ const initialState: RecipesState = {
 	filtered: [],
 }
 
-export const fetchReecipes = createAsyncThunk('recipes/fetchRecipes', async () => {
+export const loadRecipes = createAsyncThunk('recipes/fetchRecipes', async () => {
 	const response = await api.fetchRecipes()
 	return response
 })
@@ -17,7 +17,7 @@ export const recipesSlice = createSlice({
 	initialState,
 	reducers: {},
 	extraReducers: builder => {
-		builder.addCase(fetchReecipes.fulfilled, (state, action) => {
+		builder.addCase(loadRecipes.fulfilled, (state, action) => {
 			state.recipes = action.payload
 		})
 	},

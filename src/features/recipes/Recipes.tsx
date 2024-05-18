@@ -1,28 +1,26 @@
 import { useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../../app/hooks'
-import { fetchRecipes } from './api'
 import { selectRecipes } from './selectors'
+import { loadRecipes } from './RecipesSlice'
 
 export default function Recipes(): JSX.Element {
 	const recipes = useAppSelector(selectRecipes)
 	const dispatch = useAppDispatch()
 
 	useEffect(() => {
-		dispatch(fetchRecipes)
+		dispatch(loadRecipes())
 	}, [dispatch])
 
 	return (
 		<div>
 			<h2>Recipes</h2>
-			<div>
+			<ul>
 				{recipes.map(recipe => (
 					<li key={recipe.id}>
-						{recipe.name}
-						{recipe.ingredients}
-						{recipe.instructions}
+						<p>{recipe.name}</p>
 					</li>
 				))}
-			</div>
+			</ul>
 		</div>
 	)
 }
