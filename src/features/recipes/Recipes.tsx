@@ -3,6 +3,7 @@ import { useAppDispatch, useAppSelector } from '../../app/hooks'
 import { selectRecipes } from './selectors'
 import { loadRecipes } from './RecipesSlice'
 import RecipesOne from '../recipesOne/RecipesOne'
+import style from './Recipes.module.css'
 
 export default function Recipes(): JSX.Element {
 	const recipes = useAppSelector(selectRecipes)
@@ -20,7 +21,7 @@ export default function Recipes(): JSX.Element {
 			{selectedRecipe === null ? (
 				<div>
 					<h2>Recipes</h2>
-					<ul>
+					<ul className={style.ulRecipes}>
 						{recipes.map(recipe => (
 							<li key={recipe.id}>
 								<h3>{recipe.name}</h3>
