@@ -1,11 +1,14 @@
 import { useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../../app/hooks'
 import { selectRecipeOne } from './selectors'
-import RecipeOne from './types/RecipeOne'
 import { loadRecipeOne } from './RecipeOneSlice'
 
-export default function RecipesOne(props: { id: number }): JSX.Element {
-	const { id } = props
+interface RecipeOneProps {
+	id: number
+	goBack: () => void
+}
+
+export default function RecipesOne({ id, goBack }: RecipeOneProps): JSX.Element {
 	const recipeOne = useAppSelector(selectRecipeOne)
 	const dispatch = useAppDispatch()
 
@@ -15,9 +18,20 @@ export default function RecipesOne(props: { id: number }): JSX.Element {
 
 	return (
 		<div>
-			<h2>Recipe</h2>
-			{recipeOne.id}
-			{recipeOne.name}
+			<button onClick={goBack}>Back to Recipes</button>
+			<h1>{recipeOne.name}</h1>
+			<ul>
+				<h3>instructions</h3>
+				{recipeOne.instructions.map((instruction, index) => (
+					<li key={index}>{instruction}</li>
+				))}
+			</ul>
+			<img src={recipeOne.image} alt={recipeOne.name} style={{ width: '600px' }} />
+			<ul>
+				{recipeOne.mealType.map((mealType, index) => (
+					<li key={index}>{mealType}</li>
+				))}
+			</ul>
 		</div>
 	)
 }

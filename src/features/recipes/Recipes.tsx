@@ -1,38 +1,43 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useAppDispatch, useAppSelector } from '../../app/hooks'
 import { selectRecipes } from './selectors'
 import { loadRecipes } from './RecipesSlice'
-import { Link } from 'react-router-dom'
+import RecipesOne from '../recipesOne/RecipesOne'
 
 export default function Recipes(): JSX.Element {
 	const recipes = useAppSelector(selectRecipes)
 	const dispatch = useAppDispatch()
+	const [selectedRecipe, setSelectedRecipe] = useState<number | null>(null)
 
 	useEffect(() => {
 		dispatch(loadRecipes())
 	}, [dispatch])
 
+	const handleSelectRecipe = (id: number): void => setSelectedRecipe(id)
+
 	return (
 		<div>
-			<h2>Recipes</h2>
-			<ul>
-				{recipes.map(recipe => (
-					<li key={recipe.id}>
-						<h3>{recipe.name}</h3>
-						{recipe.instructions.map((instruction, index) => (
-							<li key={index}>{instruction}</li>
-						))}
-						<img src={recipe.image} style={{ width: '200px' }} alt="image" />
-						{recipe.mealType.map((myleTp, index) => (
-							<li key={index}>
-								<h4>{myleTp}</h4>
+			{selectedRecipe === null ? (
+				<div>
+					<h2>Recipes</h2>
+					<ul>
+						{recipes.map(recipe => (
+							<li key={recipe.id}>
+								<h3>{recipe.name}</h3>
+								<img src={recipe.image} style={{ width: '200px' }} alt={recipe.name} />
+								<ul>
+									{recipe.mealType.map((mealType, index) => (
+										<li key={index}>{mealType}</li>
+									))}
+								</ul>
+								<button onClick={() => handleSelectRecipe(recipe.id)}>View Details</button>
 							</li>
 						))}
-						<Link to={`${recipe.id}`}></Link>
-					</li>
-				))}
-			</ul>
+					</ul>
+				</div>
+			) : (
+				<RecipesOne id={selectedRecipe} goBack={() => setSelectedRecipe(null)} />
+			)}
 		</div>
 	)
 }
-// <Link to={`${wineData.id}`}>Подробнее</Link>

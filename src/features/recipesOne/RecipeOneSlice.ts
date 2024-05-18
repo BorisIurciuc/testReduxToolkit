@@ -17,17 +17,6 @@ export const loadRecipeOne = createAsyncThunk('recipeOne/loadRecioeOne', async (
 	return respons
 })
 
-// export const RecipeOneSlice = createSlice({
-// 	name: 'recipeOne',
-// 	initialState,
-// 	reducers: {},
-// 	extraReducers: builder => {
-// 		builder.addCase(loadRecipeOne.fulfilled, (state, action) => {
-// 			state.recipeOne = action.payload.id
-// 		})
-// 	},
-// })
-
 export const RecipeOneSlice = createSlice({
 	name: 'recipeOne',
 	initialState,
