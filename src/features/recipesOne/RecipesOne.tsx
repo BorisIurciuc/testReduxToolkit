@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../../app/hooks'
 import { selectRecipeOne } from './selectors'
 import { loadRecipeOne } from './RecipeOneSlice'
+import style from './RecipesOne.module.css'
 
 interface RecipeOneProps {
 	id: number
@@ -17,7 +18,7 @@ export default function RecipesOne({ id, goBack }: RecipeOneProps): JSX.Element 
 	}, [dispatch, id])
 
 	return (
-		<div>
+		<div className={style.divRecipesOne}>
 			<button onClick={goBack}>Back to Recipes</button>
 			<h1>{recipeOne.name}</h1>
 			<ul>

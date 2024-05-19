@@ -17,13 +17,13 @@ export default function Recipes(): JSX.Element {
 	const handleSelectRecipe = (id: number): void => setSelectedRecipe(id)
 
 	return (
-		<div>
+		<div className={style.divRecipes}>
 			{selectedRecipe === null ? (
 				<div>
 					<h2>Recipes</h2>
 					<ul className={style.ulRecipes}>
 						{recipes.map(recipe => (
-							<li key={recipe.id}>
+							<li key={recipe.id} className={style.liRecipes}>
 								<h3>{recipe.name}</h3>
 								<img src={recipe.image} style={{ width: '200px' }} alt={recipe.name} />
 								<ul>
