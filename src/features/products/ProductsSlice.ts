@@ -6,15 +6,24 @@ const initialState: ProductsState = {
 	products: [],
 	filtered: [],
 }
+export const loadProducts = createAsyncThunk('products/loadProducts', async () => {
+	const response = await api.fetchProducts()
+	return response
+})
 
-export const loadProducts = createAsyncThunk('products/loadProducts', () => api.fetchProducts())
-export const deleteProduct = createAsyncThunk('products/deleteProduct', (id: number) =>
-	api.deleteProduct(id)
-)
+export const deleteProduct = createAsyncThunk('products/deleteProduct', async (id: number) => {
+	await api.deleteProduct(id)
+	return id
+})
+
 export const editTitle = createAsyncThunk(
 	'product/editTitle',
-	({ title, id }: { title: string; id: number }) => api.fetchEditTitle(title, id)
+	async ({ title, id }: { title: string; id: number }) => {
+		const response = await api.fetchEditTitle(title, id)
+		return response
+	}
 )
+
 export const productsSlice = createSlice({
 	name: 'products',
 	initialState,
@@ -25,13 +34,20 @@ export const productsSlice = createSlice({
 				state.products = action.payload
 			})
 			.addCase(deleteProduct.fulfilled, (state, action) => {
-				state.products = state.products.filter(product => product.id !== action.payload?.id)
+				const id = action.payload
+				state.products = state.products.filter(product => product.id !== id)
+				//state.filtered = state.filtered.filter(product => product.id !== id)
 			})
 			.addCase(editTitle.fulfilled, (state, action) => {
-				state.filtered = state.filtered.map(products =>
-					products.id === action.payload.id ? action.payload : products
+				const updatedProduct = action.payload
+				state.products = state.products.map(product =>
+					product.id === updatedProduct.id ? updatedProduct : product
 				)
+				// state.filtered = state.filtered.map(product =>
+				// 	product.id === updatedProduct.id ? updatedProduct : product
+				// )
 			})
 	},
 })
+
 export default productsSlice.reducer

@@ -1,0 +1,24 @@
+h2 {
+    text-align: center;
+}
+.ulRecipes {
+    margin: 10px;
+    padding: 10px;
+    border: solid 1px darkgray;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    box-shadow: 20px black;
+    gap: 10px;
+}
+.liRecipes {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 350px;
+    height: 350px;
+    border: solid 0.5px rgb(171, 167, 167);
+}
