@@ -7,6 +7,7 @@ import Layout from './layouts/Layout'
 import Home from './components/Home/Home'
 import Users from './features/users/Users'
 import Products from './features/products/Products'
+import Recipes from './features/recipes/Recipes'
 
 function App(): JSX.Element {
 	return (
@@ -18,6 +19,7 @@ function App(): JSX.Element {
 					<Route path="quotes" element={<Quotes />} />
 					<Route path="users" element={<Users />} />
 					<Route path="products" element={<Products />} />
+					<Route path="recipes" element={<Recipes />} />
 				</Route>
 			</Routes>
 		</>

@@ -3,7 +3,6 @@ import { useAppDispatch, useAppSelector } from '../../app/hooks'
 import { selectUsers } from './selectors'
 import { loadUsers } from './UserSlice'
 import style from './Users.module.css'
-import Carts from '../../components/cartUsers/Carts'
 
 export default function Users(): JSX.Element {
 	const users = useAppSelector(selectUsers)
