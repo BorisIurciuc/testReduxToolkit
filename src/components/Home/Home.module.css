@@ -1,0 +1,9 @@
+.containerHome{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.containerHome img{
+    width: 50%;
+}
